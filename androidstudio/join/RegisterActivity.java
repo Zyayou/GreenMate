@@ -122,34 +122,32 @@ public class RegisterActivity extends Activity{
                     return;
                 }
 
+                //비밀번호, 비밀번호 확인이 일치하지 않을 경우
+                if(!(m_pw.equals(PassCk))) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
+                    dialog = builder.setMessage("비밀번호가 동일하지 않습니다.").setNegativeButton("확인", null).create();
+                    dialog.show();
+                    return;
+                }
+
+                //DB등록
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-
-                        try {
-                            JSONObject jsonObject = new JSONObject( response );
+                        try {JSONObject jsonObject = new JSONObject( response );
                             boolean success = jsonObject.getBoolean( "success" );
-
                             //회원가입 성공시
-                            if(m_pw.equals(PassCk)) {
-                                if (success) {
+                            if (success) {
 
-                                    Toast.makeText(getApplicationContext(), String.format("%s님 가입을 환영합니다.", m_name), Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                                    startActivity(intent);
+                                Toast.makeText(getApplicationContext(), String.format("%s님 가입을 환영합니다.", m_name), Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                                startActivity(intent);
 
-                                    //회원가입 실패시
-                                } else {
-                                    Toast.makeText(getApplicationContext(), "회원가입에 실패하였습니다.", Toast.LENGTH_SHORT).show();
-                                    return;
-                                }
+                            //회원가입 실패시
                             } else {
-                                AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
-                                dialog = builder.setMessage("비밀번호가 동일하지 않습니다.").setNegativeButton("확인", null).create();
-                                dialog.show();
+                                Toast.makeText(getApplicationContext(), "회원가입에 실패하였습니다. 형식에 맞게 정보를 입력해주세요.", Toast.LENGTH_SHORT).show();
                                 return;
                             }
-
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
