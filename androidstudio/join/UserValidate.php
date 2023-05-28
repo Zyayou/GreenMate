@@ -1,5 +1,5 @@
 <?php
-    $con = mysqli_connect('localhost', '', '', 'green');
+    $con = mysqli_connect('localhost', 'root', 'DB패스워드', 'green');
 
     $m_id = $_POST["m_id"];
 
