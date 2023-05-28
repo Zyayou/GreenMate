@@ -62,7 +62,6 @@ public class RegisterActivity extends Activity{
                     @Override
                     public void onResponse(String response) {
                         try {
-                            join_name.setText(response);
                             JSONObject jsonResponse = new JSONObject(response);
                             boolean success = jsonResponse.getBoolean("success");
 
