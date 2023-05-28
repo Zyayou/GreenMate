@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 public class ValidateRequest extends StringRequest{
     //서버 url 설정(php파일 연동)
-    final static  private String URL="http://192.168.1.6/UserValidate.php";
+    final static  private String URL="http://ip주소/UserValidate.php";
     private Map<String, String> map;
 
     public ValidateRequest(String m_id, Response.Listener<String> listener){
