@@ -2,3 +2,6 @@ DB연동을 위해 해야할 것
 1. XAMPP에서 아파치 활성화
 2. php파일들은 C:\xampp\htdocs 폴더에 php파일 형태로 넣어 놓을것
 3. 각 파일들에 DB이름, 패스워드, ip주소 등을 잘 확인하고 본인 것을 입력할 것
+4. Gradle Scripts -> build.gradle (Module: app) 에 들어가서 implementation 'com.android.volley:volley:1.1.1'//서버통신 관련 라이브러리
+코드를 추가해 Volley를 다운
+
