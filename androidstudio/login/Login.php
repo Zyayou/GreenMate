@@ -1,5 +1,5 @@
 <?php
-    $con = mysqli_connect("localhost", "root", "xkdlrj12", "green");
+    $con = mysqli_connect("localhost", "root", "비밀번호", "green");
     mysqli_query($con,'SET NAMES utf8');
  
     $m_id = $_POST["m_id"];
